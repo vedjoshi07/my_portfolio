@@ -269,13 +269,17 @@ section {
 .about-image {
     flex: 1;
     text-align: center;
-    padding-right: 30px;
+    padding: 20px;
+    min-width: 300px; /* Minimum width to maintain stability */
 }
 
 .about-image img {
-    max-width: 100%;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height */
     border-radius: 10px;
     box-shadow: var(--shadow);
+    object-fit: cover; /* Maintains aspect ratio */
+    margin: 0 auto;
 }
 
 .about-text {
@@ -617,6 +621,18 @@ footer {
     .contact-container {
         padding: 0 15px;
     }
+
+    .about-image {
+        padding: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-image img {
+        width: 280px; /* Slightly smaller but still stable */
+        height: 280px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -695,6 +711,11 @@ footer {
     .contact-form textarea {
         font-size: 14px;
     }
+
+    .about-image img {
+        width: 280px; /* Keep the same size */
+        height: 280px;
+    }
 }
 
 /* Add new breakpoint for extra small devices */
@@ -726,6 +747,11 @@ footer {
         height: 35px;
         margin-right: 10px;
     }
+
+    .about-image img {
+        width: 260px; /* Minimal reduction for very small screens */
+        height: 260px;
+    }
 }
 
 /* Add viewport height fix for mobile browsers */
@@ -739,3 +765,4 @@ footer {
         padding: 100px 0 50px;
     }
 }
+

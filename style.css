@@ -317,7 +317,7 @@ section {
 
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for PC */
     gap: 30px;
 }
 
@@ -563,84 +563,59 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-    .home-text h1 {
-        font-size: 40px;
+    /* For tablets */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns for tablets */
+        gap: 20px;
     }
-
-    .home-image img {
-        width: 300px;
-        height: 300px;
+    
+    .service-card {
+        padding: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 80%;
-        height: calc(100vh - 80px);
-        background-color: var(--bg-color);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.5s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    /* For mobile */
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 20px;
+        padding: 0 15px;
     }
 
-    .nav-links.active {
-        right: 0;
+    .service-card {
+        max-width: 100%;
+        margin-bottom: 20px;
     }
 
-    .nav-links li {
-        margin: 15px 0;
+    /* Adjust home section */
+    #home {
+        height: auto;
+        padding-top: 100px; /* Account for fixed header */
     }
 
-    .hamburger {
-        display: block;
+    .home-content {
+        gap: 30px;
     }
 
-    .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
+    .home-text {
+        margin-bottom: 30px;
     }
 
-    .hamburger.active div:nth-child(2) {
-        opacity: 0;
+    /* Adjust skills container */
+    .skills-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
     }
 
-    .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
+    /* Adjust projects grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
     }
 
-    .home-content,
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .home-text,
-    .about-text {
-        padding: 0;
-        margin-bottom: 50px;
-    }
-
-    .home-image,
-    .about-image {
-        padding: 0;
-    }
-
-    .btn-outline {
-        margin-left: 0;
-        margin-top: 15px;
-        display: block;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    section {
-        padding: 80px 0;
+    /* Adjust contact section */
+    .contact-container {
+        padding: 0 15px;
     }
 }
 
@@ -656,5 +631,111 @@ footer {
     .home-image img {
         width: 250px;
         height: 250px;
+    }
+
+    /* Adjust container padding */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Adjust section padding */
+    section {
+        padding: 60px 0;
+    }
+
+    /* Adjust text sizes */
+    .home-text p {
+        font-size: 14px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+    }
+
+    /* Adjust buttons */
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    /* Adjust images */
+    .about-image img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Adjust info list */
+    .info-list {
+        padding: 0 15px;
+    }
+
+    .info-list li {
+        font-size: 14px;
+    }
+
+    /* Adjust project cards */
+    .project-card {
+        margin: 0 0 20px 0;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+    /* Adjust contact form */
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+}
+
+/* Add new breakpoint for extra small devices */
+@media (max-width: 320px) {
+    .home-text h1 {
+        font-size: 28px;
+    }
+
+    .home-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .nav-links li a {
+        font-size: 14px;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+}
+
+/* Add viewport height fix for mobile browsers */
+@media screen and (max-height: 600px) {
+    #home {
+        min-height: 100vh;
+        height: auto;
+    }
+    
+    .home-content {
+        padding: 100px 0 50px;
     }
 }
